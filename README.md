@@ -21,4 +21,4 @@ I am bad at remembering the syntax of markdown. This program allows me to previe
 * [x] Add a flag to specify the port
 * [ ] Create a markdown file that contains all the markdown syntax, to test the program
 * [ ] Create my own markdown parser and web framework instead of using Blackfriday and Gin (Maybe I will do this in the future)
-* [ ] A GUI that allows you to edit the markdown file and preview it in real time
+* [x] A GUI that allows you to edit the markdown file and preview it in real time
