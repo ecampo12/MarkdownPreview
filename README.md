@@ -1,6 +1,9 @@
 # About
 A simple program that previews the conetents of a markdown file in a browser.
 
+# Warning
+The program will try to gracefully shutdown when you press Ctrl+C. If you close the program without pressing Ctrl+C, the port will be occupied and you will need to either use a different port or kill the process.
+
 # Why?
 I am bad at remembering the syntax of markdown. This program allows me to preview the file in a browser and see how it looks before I commit it.
 

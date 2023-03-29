@@ -16,7 +16,8 @@ import (
 )
 
 func usage() {
-	log.Fatal("Usage: ./preview -file=<markdown-file>")
+	log.Fatal("Usage: ./preview -file=<markdown-file> [options]")
+	log.Fatal("Options: -port=<port-number> (default: 6060)")
 }
 
 func main() {
