@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -15,20 +16,24 @@ import (
 )
 
 func usage() {
-	log.Fatal("Usage: ./preview <markdown-file>")
+	log.Fatal("Usage: ./preview -file=<markdown-file>")
 }
 
 func main() {
-	if len(os.Args) < 2 {
+	// Parse the command line flags
+	filePath := flag.String("file", "", "markdown file path")
+	port := flag.String("port", "6060", "port to listen on")
+	flag.Parse()
+
+	if *filePath == "" {
 		usage()
 	}
-	filePath := os.Args[1]
 
 	r := gin.Default()
 
 	r.GET("/preview", func(c *gin.Context) {
 		// Read the Markdown file from disk
-		mdBytes, err := ioutil.ReadFile(filePath)
+		mdBytes, err := ioutil.ReadFile(*filePath)
 		if err != nil {
 			fmt.Println("Error reading file!!")
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -45,7 +50,7 @@ func main() {
 	})
 
 	server := &http.Server{
-		Addr:    ":6060",
+		Addr:    ":" + *port,
 		Handler: r,
 	}
 
