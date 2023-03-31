@@ -18,6 +18,7 @@ func main() {
 	myWindow := myApp.NewWindow("Markdown Preview")
 
 	mdEntry := widget.NewMultiLineEntry()
+	mdEntry.Wrapping = fyne.TextWrapWord
 	mdEntry.Resize(fyne.NewSize(400, 400))
 
 	htmlLabel := widget.NewLabel("")
